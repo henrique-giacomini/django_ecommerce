@@ -17,5 +17,8 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
+    path('', home_page),
+    path('about/', about_pages),
+    path('contact/', contact_page),
     path('admin/', admin.site.urls),
 ]
