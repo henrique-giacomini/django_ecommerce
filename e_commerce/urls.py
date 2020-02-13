@@ -30,7 +30,7 @@ urlpatterns = [
         path('featured/<int:pk>', ProductFeaturedDetailView.as_view()),
         path('products/', ProductListView.as_view()),
         path('products/<int:pk>', ProductDetailView.as_view()),
-        path('products/<slug:slug', ProductDetailSlugView.as_view())
+        path('products/<slug:slug', ProductDetailSlugView.as_view()),
         path('admin/', admin.site.urls),
 ]
 
