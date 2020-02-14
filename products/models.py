@@ -1,4 +1,6 @@
 from django.db import models
+from .utils import unique_slug_generator
+from django.db.models.signals import pre_save
 
 #Custom queryset
 class ProductQuerySet(models.query.QuerySet):
@@ -42,3 +44,9 @@ class Product(models.Model): #product_category
     #python 3
     def __str__(self):
         return self.title
+
+    def product_pre_save_receiver(sender, instance, *args, **kwargs):
+        if not instance.slug:
+            instance.slug = unique_slug_generator(instance)
+
+            pre_save.connect(product_pre_save_receiver, sender = Product)
