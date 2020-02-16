@@ -5,13 +5,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 from products.views import ProductListView, ProductDetailView, ProductFeaturedListView, ProductFeaturedDetailView, ProductDetailSlugView
 
+
 urlpatterns = [
         path('', home_page),
         path('about/', about_page),
 	    path('contact/', contact_page),
         path('login/', login_page),
         path('register/', register_page),
-        path('products/', include("products.urls")),
+        path('products/', include("products.urls", namespace="products")),
         path('admin/', admin.site.urls),
 ]
 
