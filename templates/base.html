@@ -9,7 +9,8 @@
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             <title>Base Template</title>
-            {% 'base/css.html' %}
+            {% include 'base/css.html' %}
+            {% block base_head %}{% endblock base_head %}
         </head>
 	      <body>
           {% include 'base/navbar.html' %}
