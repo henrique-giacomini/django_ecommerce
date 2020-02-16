@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login, get_user_model
+from django.contrib.auth import authenticate, login, get_user_model, logout
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
@@ -57,6 +57,11 @@ def login_page(request):
     return render(request, "auth/login.html", context)
 
 User = get_user_model()
+
+def logout_page(request):
+    logout(request)
+    return render(request, "auth/logout.html", {})
+
 def register_page(request):
     form = RegisterForm(request.POST or None)
     context = {
